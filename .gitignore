@@ -1,0 +1,4 @@
+*.log
+.firebase/
+public/
+compare-jwpub/
