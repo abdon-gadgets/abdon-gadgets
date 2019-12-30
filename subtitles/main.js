@@ -1,12 +1,10 @@
-function updateHash() {
-  const hash = location.hash.substr(1).split("#");
-  const pubId = hash[0];
-  const langId = hash[1];
+(function () {
+  const urlParams = new URLSearchParams(location.search);
+  const pubId = urlParams.get('pub');
+  const langId = urlParams.get('lang');
   console.log("try pubId", pubId, langId);
   loadPub(pubId, langId);
-}
-window.addEventListener("hashchange", updateHash);
-updateHash();
+}());
 
 /**
  * @param {string} pubId JW publication ID
@@ -21,7 +19,7 @@ async function loadPub(pubId, langId) {
   }
   try {
     if (!pubId) {
-      throw new Error("No hash");
+      throw new Error("Missing pubId");
     }
     const response = await fetch(
       `https://data.jw-api.org/mediator/v1/media-items/${langId}/${pubId}?clientType=tvjworg`

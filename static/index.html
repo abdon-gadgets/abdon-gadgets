@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Abdon Gadgets</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
+    />
+  </head>
+
+  <body>
+    <section class="hero is-primary is-bold">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title is-1">
+            Abdon Gadgets
+          </h1>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <div class="tile is-child box is-primary" href="subtitles/">
+              <h2 class="title is-4">Extract jw.org video subtitles</h2>
+              <form action="subtitles/" _lpchecked="1">
+                <div class="field">
+                  <label class="label"
+                    >Publication ID (like <code>pub-rwl_3_VIDEO</code>)</label
+                  >
+                  <div class="control">
+                    <input name="pub" class="input" type="text" />
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label">Language code</label>
+                  <div class="control">
+                    <input
+                      name="lang"
+                      class="input"
+                      type="text"
+                      placeholder="E"
+                    />
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                    <button class="button is-link">
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="tile is-parent">
+            <div class="tile is-child box is-primary">
+              <h2 class="title is-4">Compare jwpub revisions</h2>
+              <p>Coming soon</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
