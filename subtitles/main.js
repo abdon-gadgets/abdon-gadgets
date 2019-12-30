@@ -34,10 +34,12 @@ async function loadPub(pubId, langId) {
       throw new Error(`Video ${pubId} not found`);
     }
     const media = json.media[0];
-    if (!media.files[0].subtitles) {
+    const files = media.files;
+    const subtitles = files instanceof Array && files.map(f => f.subtitles).find(s => s);
+    if (typeof subtitles !== "object" || typeof subtitles.url !== "string") {
       throw new Error(`No subtitles`);
     }
-    const vttUrl = media.files[0].subtitles.url;
+    const vttUrl = subtitles.url;
 
     // Add title
     const title = document.createElement("h1");
@@ -119,7 +121,7 @@ async function renderText(url, outputElement) {
       // Text
       const p = document.createElement("div");
       p.classList.add("text");
-      p.textContent = l.text;
+      p.innerHTML = l.text;
       // Row
       const row = document.createElement("div");
       row.classList.add("row");
